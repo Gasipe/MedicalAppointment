@@ -1,6 +1,6 @@
 package com.example.spring_mysql.entities;
 
-import com.example.spring_mysql.entities.enums.UserRole;
+import com.example.spring_mysql.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;

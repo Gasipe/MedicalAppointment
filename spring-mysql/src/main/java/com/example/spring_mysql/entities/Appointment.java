@@ -1,6 +1,6 @@
 package com.example.spring_mysql.entities;
 
-import com.example.spring_mysql.entities.enums.AppointmentStatus;
+import com.example.spring_mysql.enums.AppointmentStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
