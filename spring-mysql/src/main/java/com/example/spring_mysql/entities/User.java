@@ -1,11 +1,11 @@
 package com.example.spring_mysql.entities;
 
-import com.example.spring_mysql.enums.UserRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.management.relation.Role;
 import java.util.UUID;
 
 @Entity
@@ -25,12 +25,9 @@ public class User {
     @Column(unique = true, nullable = false)
     private String email;
 
-    @Column(nullable = false)
-    private String password;
-
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private UserRole role;
+    private Role role;
 
 
 

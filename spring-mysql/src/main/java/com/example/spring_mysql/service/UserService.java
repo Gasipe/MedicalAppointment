@@ -1,14 +1,25 @@
 package com.example.spring_mysql.service;
 
-import com.example.spring_mysql.repository.UserRepository;
+import com.example.spring_mysql.dto.UserRequestDTO;
+import com.example.spring_mysql.dto.UserResponseDTO;
+import com.example.spring_mysql.entities.User;
 import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.UUID;
 
 @Service
 
-public class UserService {
-    private final  UserRepository userRepository;
+public interface UserService {
 
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    UserResponseDTO create(UserRequestDTO dto);
+
+    UserResponseDTO findById(UUID id);
+
+    List<UserResponseDTO> findAll();
+
+    UserResponseDTO update(Long id, UserRequestDTO dto);
+
+    void delete(Long id);
+
+    User findEntityById(Long id);
 }

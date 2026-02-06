@@ -9,7 +9,4 @@ import java.util.UUID;
 
 public class AppointmentService {
 
-    public AppointmentService schedule(UUID patientId, UUID doctorId, UUID secretaryId) {
-        User patient =  userService.findById(patientId);
-    }
 }
