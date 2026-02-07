@@ -17,9 +17,8 @@ public interface UserService {
 
     List<UserResponseDTO> findAll();
 
-    UserResponseDTO update(Long id, UserRequestDTO dto);
+    UserResponseDTO update(UUID id, UserRequestDTO dto);
 
-    void delete(Long id);
+    void delete(UUID id);
 
-    User findEntityById(Long id);
 }

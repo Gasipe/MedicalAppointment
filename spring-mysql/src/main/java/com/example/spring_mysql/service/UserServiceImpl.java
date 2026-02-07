@@ -32,26 +32,29 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponseDTO findById(UUID id) {
-        return null;
+        User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("User not found"));
+        return UserMapper.toDTO(user);
     }
 
     @Override
     public List<UserResponseDTO> findAll() {
-        return List.of();
+        return userRepository.findAll()
+                .stream()
+                .map(UserMapper:: toDTO)
+                .toList();
     }
 
     @Override
-    public UserResponseDTO update(Long id, UserRequestDTO dto) {
-        return null;
+    public UserResponseDTO update(UUID id, UserRequestDTO dto) {
+        User user = userRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("User not found"));
+        user.setName(dto.name());
+        user.setEmail(dto.email());
+        user.setRole(dto.role());
+        return UserMapper.toDTO(userRepository.save(user));
     }
 
     @Override
-    public void delete(Long id) {
-
-    }
-
-    @Override
-    public User findEntityById(Long id) {
-        return null;
+    public void delete(UUID id) {
+        userRepository.deleteById(id);
     }
 }
