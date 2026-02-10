@@ -7,6 +7,7 @@ import com.example.spring_mysql.entities.Appointment;
 import com.example.spring_mysql.repository.AppointmentRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 
@@ -29,5 +30,12 @@ public class AppointmentService {
     public AppointmentResponseDTO findConsultation(UUID id) {
         Appointment appointment = repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Appointment not found"));
         return AppointmentMapper.toDTO(appointment);
+    }
+
+    public List<AppointmentResponseDTO> findAllConsultation() {
+        return repository.findAll()
+                .stream()
+                .map(AppointmentMapper:: toDTO)
+                .toList();
     }
 }
