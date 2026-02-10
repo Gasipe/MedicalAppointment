@@ -27,9 +27,12 @@ public class Appointment {
     private User doctor;
 
     @Column(nullable = false)
-    private LocalDateTime dateTime;
+    private LocalDateTime dateUpdate;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private AppointmentStatus status;
+
+    @Column(nullable = false)
+    private LocalDateTime dateCreated;
 }
