@@ -15,7 +15,7 @@ import java.util.UUID;
 public class DoctorProfile {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO.UUID)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @OneToOne

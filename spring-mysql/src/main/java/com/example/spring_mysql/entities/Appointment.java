@@ -17,20 +17,21 @@ import java.util.UUID;
 public class Appointment {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO.UUID)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @ManyToOne
+    @JoinColumn(name = "patiend_id", nullable = false)
     private User patient;
 
     @ManyToOne
+    @JoinColumn(name = "doctor_id",  nullable = false)
     private User doctor;
 
     @Column(nullable = false)
     private LocalDateTime dateUpdate;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private AppointmentStatus status;
 
     @Column(nullable = false)

@@ -5,9 +5,12 @@ import com.example.spring_mysql.dto.UserRequestDTO;
 import com.example.spring_mysql.dto.UserResponseDTO;
 import com.example.spring_mysql.entities.User;
 import com.example.spring_mysql.repository.UserRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
+
+@Service
 
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
